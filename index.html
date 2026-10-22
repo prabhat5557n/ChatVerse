@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="theme-color" content="#08090d">
+    <meta name="color-scheme" content="dark">
+    <title>Chatverse — A little closer</title>
+    <style>
+        :root{color-scheme:dark;--bg:#08090d;--surface:#17191f;--field:#101218;--text:#f5f5f7;--muted:#acb1be;--line:#737987;--accent:#a8c7ff;--ink:#101a2b;--sent:#244d91;--error:#ffb4ae;--radius:24px}
+        *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:17px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input{font:inherit}button{cursor:pointer;touch-action:manipulation}button,input{border-radius:14px}button{min-height:48px;border:0;padding:12px 20px;transition:background .16s,opacity .16s}button:hover{filter:brightness(1.1)}button:active{filter:brightness(.9)}button:disabled{cursor:default;opacity:.5;filter:none}button:focus-visible,input:focus-visible{outline:3px solid var(--accent);outline-offset:4px}button.primary{background:var(--accent);color:var(--ink);font-weight:650;display:flex;justify-content:center;align-items:center;gap:12px;width:100%;min-height:56px}button.secondary{background:var(--surface);color:var(--accent);border:1px solid var(--line)}button.quiet{background:transparent;color:var(--accent);padding-inline:8px}svg{width:24px;height:24px;flex-shrink:0}.shell{max-width:1120px;margin:auto;padding:32px 40px max(24px,env(safe-area-inset-bottom));min-height:100dvh;display:flex;flex-direction:column}.brandbar{display:flex;align-items:center;justify-content:space-between;gap:16px}.brand{display:flex;align-items:center;gap:10px;font-size:21px;letter-spacing:-.6px;font-weight:650}.brand .mark{width:36px;height:36px}.privacy{color:var(--muted);display:flex;align-items:center;gap:8px;font-size:13px}.privacy svg{width:16px;height:16px}.onboarding{flex:1;display:grid;grid-template-columns:1fr 440px;gap:80px;align-items:center;padding:64px 0}.eyebrow{font-size:12px;letter-spacing:2px;font-weight:650;color:var(--accent);margin:0 0 16px}.hero h1{font-size:clamp(36px,4.2vw,54px);line-height:1.12;letter-spacing:-2px;font-weight:650;max-width:460px;margin:0 0 24px;text-wrap:balance}.hero p.description{color:var(--muted);max-width:390px;margin:0;line-height:1.7}.conversation-art{width:120px;height:120px;margin-bottom:28px}.promise{display:flex;gap:12px;align-items:flex-start;margin-top:40px;max-width:360px;color:var(--muted);font-size:13px}.promise svg{width:20px;height:20px;color:var(--accent)}.panel{background:var(--surface);padding:28px;border-radius:28px;border:1px solid #30343e;box-shadow:0 24px 80px #0005}.step{display:flex;align-items:center;justify-content:space-between;color:var(--muted);font-size:12px;margin-bottom:24px}.steps{display:flex;gap:5px}.steps span{width:24px;height:3px;border-radius:4px;background:#535966}.steps span.current{background:var(--accent)}h2{font-size:26px;letter-spacing:-.7px;margin:0 0 8px;line-height:1.2}.sub{color:var(--muted);margin:0 0 24px;font-size:15px}.sizes{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0;padding:0;border:0;min-width:0}.sizes legend{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}.size{display:block;position:relative;cursor:pointer;min-width:0}.size input{position:absolute;opacity:0;inset:0;width:100%;height:100%;z-index:1;cursor:pointer;margin:0}.size .tile{display:flex;flex-direction:column;padding:20px;background:var(--field);border:1px solid var(--line);border-radius:18px;min-height:130px;position:relative}.size .number{font-size:32px;line-height:1.1;letter-spacing:-1px;font-weight:550}.size .label{font-size:14px;margin-top:8px;color:var(--muted)}.size .check{position:absolute;right:14px;top:16px;width:20px;height:20px;border:1px solid var(--line);border-radius:50%;font-size:13px;display:grid;place-items:center}.size input:checked+.tile{background:#17243a;border:2px solid var(--accent);padding:19px}.size input:checked+.tile .number{color:var(--accent)}.size input:checked+.tile .check{background:var(--accent);color:var(--ink);border-color:var(--accent)}.size input:checked+.tile .check:after{content:'✓'}.size input:focus-visible+.tile{outline:3px solid var(--accent);outline-offset:4px}.selection-note{font-size:13px;color:var(--muted);margin:20px 0 24px;min-height:40px}.panel-footer{text-align:center;color:var(--muted);font-size:12px;margin:16px 0 0}.field{display:flex;flex-direction:column;gap:8px;margin:20px 0}.field label{font-size:14px;font-weight:550}.field input{width:100%;min-width:0;background:var(--field);border:1px solid var(--line);padding:14px 16px;color:var(--text);min-height:56px}.field input::placeholder{color:var(--muted)}#room{font-family:ui-monospace,SFMono-Regular,monospace;letter-spacing:1px}.room-heading{display:flex;align-items:center;justify-content:space-between;gap:8px}.helper{color:var(--muted);font-size:13px;margin:16px 0 24px}.summary{color:var(--accent);font-size:13px;margin:20px 0 0}.error{color:var(--error);font-size:14px;min-height:0;margin:12px 0}.error:empty{margin:0}.bottom{color:var(--muted);font-size:12px;display:flex;justify-content:space-between;gap:16px}.chat{flex:1;width:100%;max-width:740px;margin:28px auto 0;display:flex;flex-direction:column;min-height:0;border:1px solid #30343e;border-radius:28px;background:var(--field);overflow:hidden}.chat-head{padding:20px 24px;background:var(--surface)}.chat-top{display:flex;align-items:center;justify-content:space-between;gap:16px}.chat-head h1{font-size:22px;margin:0;letter-spacing:-.5px;overflow-wrap:anywhere}.room-code{font:14px ui-monospace,monospace;color:var(--accent);overflow-wrap:anywhere;margin-top:8px}.members{color:var(--muted);font-size:13px;margin:8px 0 0;overflow-wrap:anywhere}.chat-body{flex:1;position:relative;min-height:180px;overflow:auto}.empty{padding:48px 32px;max-width:400px;margin:0 auto;text-align:center;color:var(--muted);font-size:15px}.empty .conversation-art{width:80px;height:80px;margin-bottom:16px}.empty h2{font-size:22px;color:var(--text);text-wrap:balance}.log{padding:20px;display:flex;flex-direction:column;gap:12px}.bubble{max-width:84%;padding:12px 16px;border-radius:20px;white-space:pre-wrap;overflow-wrap:anywhere;font-size:17px}.bubble.me{align-self:flex-end;background:var(--sent);border-bottom-right-radius:6px}.bubble.them{align-self:flex-start;background:var(--surface);border-bottom-left-radius:6px}.sender{display:block;font-size:13px;font-weight:650;color:var(--accent);margin-bottom:4px}.bubble time{display:block;text-align:right;font-size:11px;color:#dbe6fa;margin-top:6px}.bubble.them time{color:var(--muted)}.system{text-align:center;color:var(--muted);font-size:13px}.composer{display:flex;align-items:center;gap:8px;padding:12px;background:var(--surface)}.composer input{min-width:0;flex:1;padding:14px 16px;border:1px solid var(--line);background:var(--field);color:var(--text)}.composer button{width:auto}.chat-note{text-align:center;margin:0;padding:8px 16px 12px;background:var(--surface);color:var(--muted);font-size:12px}.chat-mode .shell{height:100dvh}.chat-mode .bottom{display:none}.chat-mode .privacy{display:none}.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}dialog{background:var(--surface);border:1px solid var(--line);border-radius:24px;max-width:min(420px,calc(100% - 32px));padding:28px;color:var(--text)}dialog::backdrop{background:#000b}dialog p{color:var(--muted)}dialog .actions{display:flex;flex-direction:column;gap:8px}dialog button.danger{background:#ffb4ae;color:#30100e;font-weight:650}[hidden]{display:none!important}
+        @media(max-width:850px){.onboarding{gap:32px;grid-template-columns:1fr 380px}.shell{padding-inline:24px}}
+        @media(max-width:700px){.shell{padding:24px 20px max(24px,env(safe-area-inset-bottom))}.onboarding{display:flex;flex-direction:column;align-items:stretch;max-width:480px;margin:0 auto;padding:40px 0 28px;gap:28px}.hero h1{font-size:38px;max-width:360px;margin-bottom:16px}.hero p.description{font-size:15px}.hero .conversation-art{width:80px;height:80px;margin-bottom:16px}.hero .promise{display:none}.panel{padding:24px}.bottom{max-width:480px;width:100%;margin:0 auto;font-size:11px}.privacy span{display:none}.chat{margin-top:20px;border-radius:20px}.chat-head{padding:16px}.chat-mode .shell{padding-bottom:max(8px,env(safe-area-inset-bottom))}.chat-head .quiet{padding-inline:4px}.chat-head h1{font-size:20px}.chat-note{font-size:11px}.size .tile{min-height:120px}.chat-mode .brandbar{padding-inline:4px}.bubble{max-width:90%}}
+        @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+        .developer-credit{display:block;margin-top:8px;color:var(--muted);font-size:12px;text-align:center}.bottom{flex-wrap:wrap}
+    </style>
+</head>
+<body>
+<svg aria-hidden="true" style="position:absolute;width:0;height:0"><defs>
+    <symbol id="mark" viewBox="0 0 104 104"><path fill="#17243a" d="M56 30h26q14 0 14 14v20q0 14-14 14v11L68 78H56q-14 0-14-14V44q0-14 14-14Z"/><path fill="#a8c7ff" d="M22 12h38q16 0 16 16v20q0 16-16 16H36L18 78V64Q6 62 6 48V28q0-16 16-16Z"/><path fill="#101a2b" d="M24 32h34v4H24zm0 11h23v4H24z"/></symbol>
+    <symbol id="shield" viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 5 8 9 8 9s8-4 8-9V6l-8-3Z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m8 12 3 3 5-6" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+    <symbol id="arrow" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</defs></svg>
+<div class="shell">
+    <header class="brandbar"><div class="brand"><svg class="mark" aria-hidden="true"><use href="#mark"/></svg>Chatverse</div><div class="privacy"><svg aria-hidden="true"><use href="#shield"/></svg><span>No saved chat history</span></div></header>
+    <main class="onboarding" id="onboarding">
+        <section class="hero"><svg class="conversation-art" aria-hidden="true"><use href="#mark"/></svg><p class="eyebrow">ROOM FOR YOUR PEOPLE</p><h1>A little closer.<br>A little more private.</h1><p class="description">A quiet space for real conversations. Choose your circle, share a code, and be here together.</p><div class="promise"><svg aria-hidden="true"><use href="#shield"/></svg><span>No accounts. No saved chat history. Messages disappear from this app when the room ends.</span></div></section>
+        <section class="panel" id="size-step" aria-labelledby="size-title">
+            <div class="step"><span>YOUR CIRCLE</span><div class="steps" aria-label="Step 1 of 2"><span class="current"></span><span></span></div></div>
+            <h2 id="size-title" tabindex="-1">How many people?</h2><p class="sub">Including you. Just your circle, up to five.</p>
+            <fieldset class="sizes"><legend>Room size including you</legend>
+                <label class="size"><input type="radio" name="capacity" value="2" checked aria-label="2 people including you"><span class="tile"><span class="number">2</span><span class="label">You + one</span><span class="check" aria-hidden="true"></span></span></label>
+                <label class="size"><input type="radio" name="capacity" value="3" aria-label="3 people including you"><span class="tile"><span class="number">3</span><span class="label">Your small circle</span><span class="check" aria-hidden="true"></span></span></label>
+                <label class="size"><input type="radio" name="capacity" value="4" aria-label="4 people including you"><span class="tile"><span class="number">4</span><span class="label">A few close friends</span><span class="check" aria-hidden="true"></span></span></label>
+                <label class="size"><input type="radio" name="capacity" value="5" aria-label="5 people including you"><span class="tile"><span class="number">5</span><span class="label">The whole circle</span><span class="check" aria-hidden="true"></span></span></label>
+            </fieldset>
+            <p class="selection-note" id="selection-note" role="status">Space for you and one more. Everyone joins with the same room size and code.</p>
+            <button class="primary" id="continue" type="button">Continue <svg aria-hidden="true"><use href="#arrow"/></svg></button><p class="panel-footer">Small by design. Personal by nature.</p>
+        </section>
+        <section class="panel" id="details-step" aria-labelledby="details-title" hidden>
+            <div class="step"><button class="quiet" id="back" type="button">‹ Back</button><div class="steps" aria-label="Step 2 of 2"><span></span><span class="current"></span></div></div>
+            <h2 id="details-title" tabindex="-1">Make yourself at home.</h2><p class="sub">Just a name and a room code. Nothing more.</p>
+            <p class="summary" id="size-summary">2-person room</p>
+            <form id="join-form">
+                <div class="field"><label for="name">Your name</label><input id="name" placeholder="What should we call you?" maxlength="24" autocomplete="off" required aria-describedby="join-error"></div>
+                <div class="field"><div class="room-heading"><label for="room">Room code</label><button id="generate" class="quiet" type="button">Generate code</button></div><input id="room" placeholder="Enter a shared code" maxlength="32" autocomplete="off" autocapitalize="off" spellcheck="false" required aria-describedby="room-help join-error"></div>
+                <p class="helper" id="room-help">Joining friends? Use their room size and code. The first person sets the room limit.</p>
+                <p class="error" id="join-error" role="alert"></p><button class="primary" id="join-button" type="submit">Enter room <svg aria-hidden="true"><use href="#arrow"/></svg></button>
+            </form></section></main>
+    <main class="chat" id="chat" hidden>
+        <header class="chat-head"><div class="chat-top"><h1 id="chat-title" tabindex="-1">Your room is ready</h1><button class="quiet" id="end" type="button">Leave chat</button></div><div class="room-code" id="room-status"></div><p class="members" id="members" role="status" aria-atomic="true"></p></header>
+        <div class="chat-body" id="chat-body"><div class="empty" id="empty"><svg class="conversation-art" aria-hidden="true"><use href="#mark"/></svg><h2>The best part is who joins.</h2><p>Share your room code. Your conversation starts here.</p></div><div class="log" id="log" role="log" aria-label="Conversation" aria-live="polite"></div></div>
+        <form class="composer" id="send-form"><label for="message" class="sr-only">Message</label><input id="message" placeholder="Message" maxlength="2000" autocomplete="off"><button class="primary" id="send" type="submit" disabled>Send</button></form>
+        <p class="chat-note">The room stays open while at least two people remain.<span class="developer-credit">Developed by solo developer PRABHAT</span></p>
+    </main>
+    <footer class="bottom"><span>A little space. Just for you.</span><span>Developed by solo developer PRABHAT</span></footer>
+</div>
+<dialog id="end-dialog" aria-labelledby="end-title" aria-describedby="end-description"><h2 id="end-title">Leave this conversation?</h2><p id="end-description">This clears the conversation from your device. Others can keep chatting while at least two people remain. If only one remains, the room closes.</p><div class="actions"><button class="secondary" id="keep-chatting" type="button" autofocus>Keep chatting</button><button class="danger" id="confirm-end" type="button">Leave chat</button></div></dialog>
+<script>
+    'use strict';
+    const $ = id => document.getElementById(id);
+    let session = null, capacity = 2, attempt = 0, joining = false, sending = false;
+    const api = async (path, body) => {
+      try {
+        const response = await fetch('/api/' + path, {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body),signal:AbortSignal.timeout(10000)});
+        return {ok:response.ok,data:await response.json().catch(()=>({}))};
+      } catch { return {ok:false,data:{error:'Cannot reach the server. Check your connection and try again.'}}; }
+    };
+    const setJoining = value => {
+      joining = value;
+      ['join-button','name','room','generate'].forEach(id => $(id).disabled = value);
+      $('join-button').textContent = value ? 'Connecting…' : 'Enter room';
+    };
+    const details = () => { $('size-step').hidden=true; $('details-step').hidden=false; $('size-summary').textContent=capacity+'-person room'; $('details-title').focus(); };
+    document.querySelectorAll('input[name="capacity"]').forEach(input=>input.addEventListener('change',()=>{
+      capacity=Number(input.value);
+      $('selection-note').textContent=`Space for you and ${capacity-1} more. Everyone joins with the same room size and code.`;
+    }));
+    $('continue').onclick=details;
+    $('back').onclick=()=>{
+      attempt++;
+      setJoining(false);
+      $('details-step').hidden=true; $('size-step').hidden=false; $('size-title').focus();
+    };
+    $('generate').onclick=()=>{
+      const alphabet='abcdefghjkmnpqrstuvwxyz23456789';
+      $('room').value=Array.from(crypto.getRandomValues(new Uint8Array(6)),x=>alphabet[x%alphabet.length]).join('');
+      $('room').focus();
+    };
+    function line(kind,text,name,time) {
+      $('empty').hidden=true;
+      const d=document.createElement('div'); d.className=kind==='system'?'system':'bubble '+kind;
+      if(name){const sender=document.createElement('span');sender.className='sender';sender.textContent=name;d.appendChild(sender);}
+      d.appendChild(document.createTextNode(text));
+      if(time){const t=document.createElement('time');t.dateTime=new Date(time).toISOString();t.textContent=new Date(time).toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});d.appendChild(t);}
+      $('log').appendChild(d); $('chat-body').scrollTop=$('chat-body').scrollHeight;
+    }
+    function presence(data, current) {
+      if(session!==current) return;
+      const members=data.members || [], others=members.filter(m=>m.id!==current.id);
+      current.count=data.count || 1;
+      $('chat-title').textContent=capacity===2&&others.length?others[0].name:capacity+'-person room';
+      $('room-status').textContent=`Room ${current.room} · ${current.count}/${capacity} people`;
+      $('members').textContent=others.length?'You · '+others.map(m=>m.name).join(' · '):`Just you for now. Share the code to invite ${capacity-1} more.`;
+      $('send').disabled=sending||current.count<2;
+    }
+    function wipe(notice) {
+      attempt++;
+      if(session) { clearTimeout(session.reconnectTimer); session.es.close(); }
+      session=null; sending=false; setJoining(false);
+      $('end-dialog').close(); $('log').replaceChildren(); $('message').value=''; $('empty').hidden=false;
+      $('room-status').textContent=''; $('members').textContent=''; $('chat-title').textContent='Your room is ready'; $('send').disabled=true;
+      $('chat').hidden=true; $('onboarding').hidden=false; document.body.classList.remove('chat-mode');
+      details(); $('join-error').textContent=notice;
+    }
+    $('join-form').onsubmit=async event=>{
+      event.preventDefault(); if(joining) return;
+      const name=$('name').value.trim(),room=$('room').value.trim();
+      if(!name||!room){$('join-error').textContent='Enter your name and a room code.';(!name?$('name'):$('room')).focus();return;}
+      const token=++attempt; setJoining(true); $('join-error').textContent='';
+      const {ok,data}=await api('join',{name,room,capacity});
+      if(token!==attempt){if(ok)void api('leave',{room:data.room,id:data.id});return;}
+      setJoining(false);
+      if(!ok){$('join-error').textContent=data.error||'Could not join. Try again.';return;}
+      if(data.capacity!==capacity){void api('leave',data);$('join-error').textContent='The server needs the group-chat update. Try again after it is updated.';return;}
+      const es=new EventSource(`/api/stream?room=${encodeURIComponent(data.room)}&id=${encodeURIComponent(data.id)}`);
+      const current={id:data.id,room:data.room,es,count:1}; session=current;
+      $('onboarding').hidden=true; $('chat').hidden=false; document.body.classList.add('chat-mode');
+      presence({members:[],count:1},current); $('chat-title').focus();
+      es.addEventListener('hello',event=>presence(JSON.parse(event.data),current));
+      es.addEventListener('presence',event=>presence(JSON.parse(event.data),current));
+      es.addEventListener('msg',event=>{if(session===current){const m=JSON.parse(event.data);line('them',m.text,m.name,m.t);}});
+      es.addEventListener('ended',event=>{
+        if(session!==current)return;
+        const {reason}=JSON.parse(event.data);
+        const notice=reason==='alone'
+          ? 'The room closed because fewer than two people remain. This conversation was cleared.'
+          : reason==='left'
+            ? 'You left the chat. The conversation was cleared from this device.'
+            : 'Connection ended. This conversation was cleared.';
+        wipe(notice);
+      });
+      es.onerror=()=>{
+        if(session!==current)return;
+        $('members').textContent='Reconnecting…';
+        // Native EventSource retries indefinitely even for a deleted room. Bound that wait.
+        clearTimeout(current.reconnectTimer);
+        current.reconnectTimer=setTimeout(()=>{if(session===current)wipe('Connection ended. This conversation was cleared.');},18000);
+      };
+      es.onopen=()=>{clearTimeout(current.reconnectTimer);};
+    };
+    $('send-form').onsubmit=async event=>{
+      event.preventDefault(); const current=session,text=$('message').value.trim();
+      if(!current||!text||sending||current.count<2)return;
+      sending=true;$('send').disabled=true;
+      const {ok,data}=await api('send',{room:current.room,id:current.id,text});
+      if(session!==current)return;
+      sending=false;$('send').disabled=current.count<2;
+      if(ok){line('me',text,null,Date.now());if($('message').value.trim()===text)$('message').value='';}
+      else line('system',data.error||'Message was not sent. Try again.');
+    };
+    $('end').onclick=()=>{$('end-dialog').showModal();};
+    $('keep-chatting').onclick=()=>{$('end-dialog').close();};
+    $('confirm-end').onclick=async()=>{
+      const current=session;if(!current)return;
+      $('confirm-end').disabled=true;
+      const {ok,data}=await api('leave',{room:current.room,id:current.id});
+      $('confirm-end').disabled=false;
+      if(session!==current)return;
+      if(ok)wipe('You left the chat. The conversation was cleared from this device.');
+      else {$('end-dialog').close();line('system',data.error||'Could not leave the chat. Try again.');}
+    };
+    addEventListener('pagehide',()=>{if(session)navigator.sendBeacon('/api/leave',JSON.stringify({room:session.room,id:session.id}));});
+</script>
+</body></html>

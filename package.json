@@ -1,0 +1,15 @@
+{
+  "name": "chatverse",
+  "version": "1.0.0",
+  "description": "Chatverse: ephemeral rooms for 2 to 5 people, in memory only.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test test/*.test.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "UNLICENSED",
+  "private": true
+}
